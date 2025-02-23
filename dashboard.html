@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NITI SURAKSHA - Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+            <a href="home.html" class="navbar-logo">NITI SURAKSHA</a>
+            <ul class="navbar-nav">
+                <li><a href="services.html">Services</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard">
+        <h1>AI-Powered Insurance Fraud Analytics</h1>
+        <div class="dashboard-grid">
+
+            <!-- Key Statistics Cards -->
+            <div class="stat-card">
+                <h2>Total Fraud Cases</h2>
+                <p class="stat-value">3,245</p>
+                <span class="stat-subtext">+12% from last year</span>
+            </div>
+
+            <div class="stat-card">
+                <h2>Detection Accuracy</h2>
+                <p class="stat-value">89.7%</p>
+                <span class="stat-subtext">+5.2% improvement</span>
+            </div>
+
+            <div class="stat-card">
+                <h2>Fraud Cases This Month</h2>
+                <p class="stat-value">267</p>
+                <span class="stat-subtext">-3.4% from last month</span>
+            </div>
+
+            <div class="stat-card">
+                <h2>Fraud Detection Rate</h2>
+                <p class="stat-value">92.4%</p>
+                <span class="stat-subtext">↑ 5.2% from last month</span>
+            </div>
+
+            <div class="stat-card">
+                <h2>Total Claims Processed</h2>
+                <p class="stat-value">15,320</p>
+                <span class="stat-subtext">↑ 2.8% from last month</span>
+            </div>
+
+            <div class="stat-card">
+                <h2>High-Risk Claims</h2>
+                <p class="stat-value">1,203</p>
+                <span class="stat-subtext">⚠️ 18% flagged as fraudulent</span>
+            </div>
+
+            <div class="stat-card">
+                <h2>Fraudulent Claims Amount</h2>
+                <p class="stat-value">$4.6M</p>
+                <span class="stat-subtext">⚠️ 12.7% increase vs last month</span>
+            </div>
+
+            <div class="stat-card">
+                <h2>AI Model Accuracy</h2>
+                <p class="stat-value">97.8%</p>
+                <span class="stat-subtext">✅ High precision</span>
+            </div>
+
+
+
+            <div class="stat-card">
+                <h2>Active Investigations</h2>
+                <p class="stat-value">87</p>
+                <span class="stat-subtext">🔍 In-depth analysis ongoing</span>
+            </div>
+
+            <!-- Graph Cards -->
+            <div class="card wide">
+                <h2>Fraud Cases Over Time</h2>
+                <canvas id="fraudTrendChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h2>Fraud Distribution by Category</h2>
+                <canvas id="fraudCategoryChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h2>Detection Accuracy</h2>
+                <canvas id="accuracyChart"></canvas>
+            </div>
+
+            <div class="card">
+                <h2>Claims by Category</h2>
+                <canvas id="claimsCategoryChart"></canvas>
+            </div>
+
+            
+
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>Developed by <strong>Team NITI SURAKSHA</strong></p>
+        <p><a href="mailto:chandan153377@gmail.com">chandan153377@gmail.com</a></p>
+        <p>&copy; 2024 NITI SURAKSHA. All rights reserved.</p>
+    </footer>
+
+    <!-- Chart.js Scripts -->
+    <script>
+        // Fraud Trend Chart
+        var ctx1 = document.getElementById('fraudTrendChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Fraud Cases',
+                    data: [12, 19, 14, 22, 30, 28, 35],
+                    backgroundColor: '#4fc3f7'
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        // Fraud Category Chart
+        var ctx2 = document.getElementById('fraudCategoryChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'pie',
+            data: {
+                labels: ['Identity Theft', 'Fake Claims', 'Policy Fraud', 'Billing Fraud'],
+                datasets: [{
+                    data: [25, 30, 20, 25],
+                    backgroundColor: ['#004080', '#00796b', '#ff9800', '#d32f2f']
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        // Accuracy Chart
+        var ctx3 = document.getElementById('accuracyChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'line',
+            data: {
+                labels: ['AI Model 1', 'AI Model 2', 'AI Model 3'],
+                datasets: [{
+                    label: 'Detection Accuracy (%)',
+                    data: [85, 90, 88],
+                    borderColor: '#ff9800',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        // Claims Category Chart
+        var ctx4 = document.getElementById('claimsCategoryChart').getContext('2d');
+        new Chart(ctx4, {
+            type: 'doughnut',
+            data: {
+                labels: ['Health', 'Auto', 'Home', 'Life'],
+                datasets: [{
+                    data: [40, 25, 20, 15],
+                    backgroundColor: ['#4caf50', '#f57c00', '#0288d1', '#c2185b']
+                }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+
+</body>
+</html>
