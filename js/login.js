@@ -32,7 +32,7 @@ submit.addEventListener("click", function (event) {
             // Signed in 
             const user = userCredential.user;
             alert("Logged in successfully!!");
-            window.location.href = "index.html"; // Redirect to a protected page
+            window.location.href = "home.html"; // Redirect to a protected page
         })
         .catch((error) => {
             const errorMessage = error.message;
